@@ -23,5 +23,5 @@ public class Bomb {
         System.out.println("Dragon Fruit bomb");
       });
   }
-}
+} 
 //the basic use of an anonymus class is to create the body of methods of an interface.
