@@ -14,5 +14,8 @@ class CalenderTrial{
     O1.add(Calendar.MONTH, 1);
     System.out.println("1 month later : "+O1.getTime());
     //can do anything like .DATE, .MONTH, .YEAR, .MINUTE, .SECOND
+    System.out.format("%tB %te, %tY%n", c, c, c);//"November 2, 2018"
+    System.out.format("%tl:%tM %tp%n", c, c, c);// "2:27 am"
+    System.out.format("%tD%n", c);//"06/27/18"
   }
 }
