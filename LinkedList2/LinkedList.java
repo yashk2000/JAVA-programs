@@ -269,7 +269,7 @@ public class LinkedList {
 
 	}
 
-	public void Loop() {
+	public void Cycle() {
 		int flag = 0;
 		Node sp = head, fp = head;
 		while (sp != null && fp != null && fp.next != null) {
