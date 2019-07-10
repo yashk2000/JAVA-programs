@@ -4,9 +4,9 @@ public class Driver {
 	public static void main(String[] args) {
 		Palin s1 = new Palin();
 		String s;
-		Scanner scan = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter word to be checked");
-		s = scan.nextLine();
+		s = sc.nextLine();
 		for (int i = 0; i < s.length(); i++) {
 			s1.push(s.charAt(i));
 		}
