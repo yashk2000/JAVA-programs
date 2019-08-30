@@ -78,8 +78,8 @@ public class RegistrationForm implements ActionListener {
 	    char[] password = pwd.getPassword();
 	    char[] cpassword = pw.getPassword();
 
-		if(!(Arrays.equals(password,cpassword)))
-		{JOptionPane.showMessageDialog(regfrom, "Password don't match");
+		if(!(Arrays.equals(password,cpassword))  && password.length >= 4)
+		{JOptionPane.showMessageDialog(regfrom, "Passwords don't match");
 
 		}
 		else
