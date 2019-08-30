@@ -1,10 +1,12 @@
+package lab;
+
 import javax.swing.*;
 import java.awt.*;  
 import java.awt.event.*;
 import java.util.Arrays;  
 
 
-public class RegistrationForm implements ActionListener {
+public class Driver implements ActionListener {
 	public static void main(String[] args) {
 		JFrame regfrom  = new JFrame("Registration Form");
 		regfrom.setSize(400, 520);
@@ -82,7 +84,11 @@ public class RegistrationForm implements ActionListener {
 					JOptionPane.showMessageDialog(regfrom, "Passwords don't match");
 				} else if (password.length < 4){
 					JOptionPane.showMessageDialog(regfrom, "Password is too short");
-				} else {
+				} else if (!r1.isSelected() && !r2.isSelected()){
+					JOptionPane.showMessageDialog(regfrom, "Gender not selected");
+				} else if(!cb1.isSelected() && !cb2.isSelected())
+					JOptionPane.showMessageDialog(regfrom, "Programming skill(s) not selected");
+				else {
 					JOptionPane.showMessageDialog(regfrom, "Registeration Successful");
 				}
 			}});
@@ -93,8 +99,28 @@ public class RegistrationForm implements ActionListener {
 				regfrom.setVisible(false);
 
 
-			}});	   
+			}});
+		r1.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				r2.setSelected(false);
+			}
+
+		}
+				);
+		r2.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+
+				r1.setSelected(false);
+			}
+		}
+				);
 
 	}
+
 }
+
 
