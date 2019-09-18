@@ -14,5 +14,6 @@ public class GraphDriver {
 		
 		g.print();
 		g.dfs();
+		g.bfs();
 	}
 }
