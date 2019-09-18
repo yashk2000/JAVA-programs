@@ -1,4 +1,4 @@
-
+import java.util.*;
 public class Graph {
 	GraphNode[] node;
 	int size;
@@ -28,5 +28,18 @@ public class Graph {
 		if ( !node[i].visited )
 		node[i].dfs();
 		}
+	}
+	
+	public void bfs() {
+		for(int i = 0;i < size; ++i) {
+			node[i].visited = false;
+		}
+		
+		Queue<GraphNode> q = new LinkedList<GraphNode>();
+		for(int i = 0; i < size; ++i) {
+			if(!node[i].visited)
+			node[i].bfs(q);
+		}
+		System.out.println();
 	}
 }
