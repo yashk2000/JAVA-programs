@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Queue;
 public class GraphNode {
 	int label;
 	ArrayList<GraphNode> adjList;
@@ -21,6 +22,18 @@ public class GraphNode {
 		for (int j=0; j<adjList.size(); j++) {
 		if ( !adjList.get(j).visited )
 		adjList.get(j).dfs();
+		}
+	}
+	
+	public void bfs(Queue<GraphNode> q) {
+		System.out.println(label + " ");
+		visited = true;
+		for(int j = 0; j < adjList.size(); ++j) {
+			q.add(adjList.get(j));
+		}
+		GraphNode t = q.poll();
+		if(t!=null && !t.visited) {
+			t.bfs(q);
 		}
 	}
 }
