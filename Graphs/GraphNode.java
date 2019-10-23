@@ -1,39 +1,45 @@
-import java.util.ArrayList;
-import java.util.Queue;
-public class GraphNode {
-	int label;
-	ArrayList<GraphNode> adjList;
-	boolean visited;
-	
-	GraphNode(int l) {
-		label = l;
-		adjList = new ArrayList<GraphNode>();
-	}
-	
-	public void print() {
-		for(int j = 0; j < adjList.size(); ++j) {
-			System.out.print(adjList.get(j).label + "->");
-		}
-	}
-	
-	public void dfs() {
-		System.out.print(label + " ");
-		visited = true;
-		for (int j=0; j<adjList.size(); j++) {
-		if ( !adjList.get(j).visited )
-		adjList.get(j).dfs();
-		}
-	}
-	
-	public void bfs(Queue<GraphNode> q) {
-		System.out.println(label + " ");
-		visited = true;
-		for(int j = 0; j < adjList.size(); ++j) {
-			q.add(adjList.get(j));
-		}
-		GraphNode t = q.poll();
-		if(t!=null && !t.visited) {
-			t.bfs(q);
-		}
-	}
+import java.util.*;
+class GraphNode{
+    int label;
+    ArrayList<GraphNode> adjList;
+    int preorder;
+    int postorder;
+    boolean visited;
+    
+    public GraphNode(int i){
+        label = i;
+        adjList = new ArrayList<GraphNode>();
+        visited = false;
+    }
+    
+    public void print() {
+        for(int i = 0; i < adjList.size(); ++i)
+            System.out.print(adjList.get(i).label + "->");
+    }
+    
+    public int dfs(int visitedCount) {
+        visited = 0;
+        System.out.println(label + " ");
+        preorder = visitedCount;
+        for(int i = 0; i < adjList.size(); ++i) {
+            if(!adjList.get(i).visited){
+                visitedCount = adjList.get(i).dfs(++visitedCount);
+        
+        postorder = ++visitedCount;
+        return visitedCount;
+    }
+    
+    public void bfs(ArrayDeque<GraphNode> q) {
+        while(!q.isEmpty()) {
+            GraphNode x = q.remove();
+            System.out.println(x.label + " ");
+            for(int i = 0; i < x.adjList.size(); ++i) {
+                GraphNode y = x.adjList.get(i);
+                if(!y.visited) {
+                    y.visited = true;
+                    q.add(y);
+                }
+            }
+        }
+    }
 }
